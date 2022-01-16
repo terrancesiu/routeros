@@ -78,8 +78,9 @@ add comment=VPS forward-to=198.18.0.1 regexp=".*(\\.)\?(bandwagonhost|bwh1|vultr
 add comment=PT forward-to=198.18.0.1 regexp=".*(\\.)\?(pterclub|beitai|hd4fans|m-team|chdbits|ourbits|hdchina).*" type=FWD
 add comment=PT forward-to=198.18.0.1 regexp=".*(\\.)\?(hdsky|pterclub|totheglory).*" type=FWD
 add comment=PT forward-to=198.18.0.1 regexp=".*(\\.)\?(yingk|springsunday|keepfrds).*" type=FWD
-add comment=Disney+ forward-to=198.18.0.1 regexp=".*(\\.)\?(dssott|disneyplus|alphacdn|disney-plus)\\.(com|net)" type=FWD
-add comment=Disney+ forward-to=198.18.0.1 regexp=".*(\\.)\?(bamgrid|llnwi)\\.(com|net)" type=FWD
+add comment=Disney+ forward-to=198.18.0.1 regexp=".*(\\.)\?(dssott|disneyplus|alphacdn|disney-plus)\\.(com|net|co.uk|in)" type=FWD
+add comment=Disney+ forward-to=198.18.0.1 regexp=".*(\\.)\?(disco-api|dnitv|fwmrm|getblueshift|litix)\\.(com|net|io)" type=FWD
+add comment=Disney+ forward-to=198.18.0.1 regexp=".*(\\.)\?(bamgrid|llnwi|uplynk|disco-api|newrelic)\\.(com|net)" type=FWD
 add comment=Twitter forward-to=198.18.0.1 name=t.co type=FWD
 add comment="Apple TV" forward-to=198.18.0.1 name=ocvideo.apple.com type=FWD
 add comment=Apple forward-to=198.18.0.1 name=api-glb-sea.smoot.apple.com type=FWD
@@ -98,6 +99,5 @@ add comment=Jwplayer forward-to=198.18.0.1 name=videos-f.jwpsrv.com type=FWD
 add comment=DOMAIN forward-to=198.18.0.1 name=zh.ifixit.com type=FWD
 add comment=DOMAIN forward-to=198.18.0.1 name=ccmdl.adobe.com type=FWD
 add comment=DOMAIN forward-to=198.18.0.1 name=media.steampowered.com type=FWD
-add forward-to=198.18.0.1 name=plex.terrance.im type=FWD
-add address=2606:4700:d0::a29f:c001 name=engage.cloudflareclient.com type=AAAA
+add address=2606:4700:d0::a29f:c001 comment="Cloudflare Warp" name=engage.cloudflareclient.com type=AAAA
 add comment=Disney+ forward-to=198.18.0.1 name=cdn.registerdisney.go.com type=FWD
