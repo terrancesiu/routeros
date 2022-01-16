@@ -72,7 +72,7 @@ add comment=News forward-to=198.18.0.1 regexp=".*(\\.)\?(theinitium|rfa|ntdtv|ep
 add comment="Android APK" forward-to=198.18.0.1 regexp=".*(\\.)\?(apk-dl|apkpure)\\.com" type=FWD
 add comment=XXX forward-to=198.18.0.1 regexp=".*(\\.)\?(xvideos|pronhub|avgle)\\.com" type=FWD
 add comment=Telegram forward-to=198.18.0.1 regexp=".*(\\.)\?telegram\\.org" type=FWD
-add comment=Tools forward-to=198.18.0.1 regexp=".*(\\.)\?(shadowsocks|v2ray|putty)\\.(org|com)" type=FWD
+add comment=Tools forward-to=198.18.0.1 regexp=".*(\\.)\?(shadowsocks|v2ray|putty|fixit)\\.(org|com)" type=FWD
 add comment=Tools forward-to=198.18.0.1 regexp=".*(\\.)\?draw\\.io\$" type=FWD
 add comment=VPS forward-to=198.18.0.1 regexp=".*(\\.)\?(bandwagonhost|bwh1|vultr|digitalocean|linode|feenom)\\.com\$" type=FWD
 add comment=PT forward-to=198.18.0.1 regexp=".*(\\.)\?(pterclub|beitai|hd4fans|m-team|chdbits|ourbits|hdchina).*" type=FWD
@@ -96,8 +96,6 @@ add comment=ViuTV/MY5 forward-to=198.18.0.1 name=api.viu.now.com type=FWD
 add comment=Jwplayer forward-to=198.18.0.1 name=content.jwplatform.com type=FWD
 add comment=DOMAIN forward-to=198.18.0.1 name=wego.here.com type=FWD
 add comment=Jwplayer forward-to=198.18.0.1 name=videos-f.jwpsrv.com type=FWD
-add comment=DOMAIN forward-to=198.18.0.1 name=zh.ifixit.com type=FWD
-add comment=DOMAIN forward-to=198.18.0.1 name=ccmdl.adobe.com type=FWD
-add comment=DOMAIN forward-to=198.18.0.1 name=media.steampowered.com type=FWD
+add comment=Steam forward-to=198.18.0.1 name=media.steampowered.com type=FWD
 add address=2606:4700:d0::a29f:c001 comment="Cloudflare Warp" name=engage.cloudflareclient.com type=AAAA
 add comment=Disney+ forward-to=198.18.0.1 name=cdn.registerdisney.go.com type=FWD
