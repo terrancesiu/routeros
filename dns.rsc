@@ -56,7 +56,7 @@ add comment=Google forward-to=198.18.0.1 regexp=".*(\\.)\?(material|shattered|re
 add comment=Google forward-to=198.18.0.1 regexp=".*(\\.)\?(abc|admin|getmdl)\\.(xyz|net|io)" type=FWD
 add comment=Facebook forward-to=198.18.0.1 regexp=".*(\\.)\?(messenger|whatsapp|oculus|oculuscdn)\\.(com|net)" type=FWD
 add comment=Facebook forward-to=198.18.0.1 regexp=".*(\\.)\?(cdninstagram|fb|fbcdn|instagram)\\.(com|net|me)" type=FWD
-add comment=Twitter forward-to=198.18.0.1 regexp=".*(\\.)\?(twimg|twitpic|twitter)\\.(co|com)" type=FWD
+add comment=Twitter forward-to=198.18.0.1 regexp=".*(\\.)\?(t|twimg|twitpic|twitter)\\.(co|com)" type=FWD
 add comment=Line forward-to=198.18.0.1 regexp=".*(\\.)\?(line(.*|\\.)|naver)\\.(me|com|net|jp)" type=FWD
 add comment=Bitcoin forward-to=198.18.0.1 regexp=".*(\\.)\?(bibox|binance|bitfinex|hbg|okex)\\.com" type=FWD
 add comment=Share forward-to=198.18.0.1 regexp=".*(\\.)\?(dailymotion|scribd|soundcloud|pixiv|slideshare)\\.(com|net)" type=FWD
@@ -79,7 +79,6 @@ add comment=PT forward-to=198.18.0.1 regexp=".*(\\.)\?(pterclub|beitai|hd4fans|m
 add comment=PT forward-to=198.18.0.1 regexp=".*(\\.)\?(hdsky|pterclub|totheglory).*" type=FWD
 add comment=PT forward-to=198.18.0.1 regexp=".*(\\.)\?(yingk|springsunday|keepfrds).*" type=FWD
 add comment=Disney+ forward-to=198.18.0.1 regexp=".*(\\.)\?(dssott|disneyplus|disney-plus|bamgrid)\\.(com|net)" type=FWD
-add comment=Twitter forward-to=198.18.0.1 name=t.co type=FWD
 add comment="Apple TV" forward-to=198.18.0.1 name=ocvideo.apple.com type=FWD
 add comment=Apple forward-to=198.18.0.1 name=api-glb-sea.smoot.apple.com type=FWD
 add comment=Apple forward-to=198.18.0.1 name=beta.itunes.apple.com type=FWD
