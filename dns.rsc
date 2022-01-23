@@ -19,7 +19,7 @@ add comment=Company forward-to=198.18.0.1 regexp=".*(\\.)\?(nvidia|qualcomm|cisc
 add comment=Cloud forward-to=198.18.0.1 regexp=".*(\\.)\?(oraclecloud|alicloud|salesforces|sap|workday)\\.com\$" type=FWD
 add comment=ITV forward-to=198.18.0.1 regexp=".*(\\.)\?(itv|itvstatic)\\.com" type=FWD
 add comment=Pandora/PBS forward-to=198.18.0.1 regexp=".*(\\.)\?(pandora|pbs)\\.(com|org)" type=FWD
-add comment=MicroSoft forward-to=198.18.0.1 regexp=".*(\\.)\?(azure|bing|live|outlook|msn|surface)\\.(net|com|org)" type=FWD
+add comment=MicroSoft forward-to=198.18.0.1 regexp=".*(\\.)\?(azure|bing|live|outlook|msn|surface|sharepoint)\\.(net|com|org)" type=FWD
 add comment=Hulu forward-to=198.18.0.1 regexp=".*(\\.)\?(hulu|happyon).*(\\.com|\\.jp)" type=FWD
 add comment="Fox Now" forward-to=198.18.0.1 regexp=".*(\\.)\?(fox|uplynk).*\\.com" type=FWD
 add comment="Fox+ (HK|TW|SG)" forward-to=198.18.0.1 regexp=".*(\\.)\?(foxplus|theplatform)\\.com" type=FWD
