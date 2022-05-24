@@ -72,7 +72,7 @@ add comment=News forward-to=198.18.0.1 regexp=".*(\\.)\?(theinitium|rfa|ntdtv|ep
 add comment="Android APK" forward-to=198.18.0.1 regexp=".*(\\.)\?(apk-dl|apkpure)\\.com" type=FWD
 add comment=XXX forward-to=198.18.0.1 regexp=".*(\\.)\?(xvideos|pronhub|avgle)\\.com" type=FWD
 add comment=Telegram forward-to=198.18.0.1 regexp=".*(\\.)\?telegram\\.org" type=FWD
-add comment=Tools forward-to=198.18.0.1 regexp=".*(\\.)\?(shadowsocks|v2ray|putty|fixit)\\.(org|com)" type=FWD
+add comment=Tools forward-to=198.18.0.1 regexp=".*(\\.)\?(wireguard|shadowsocks|v2ray|putty|fixit)\\.(org|com)" type=FWD
 add comment=Tools forward-to=198.18.0.1 regexp=".*(\\.)\?(draw|amcharts)\\.(io|com)\$" type=FWD
 add comment=VPS forward-to=198.18.0.1 regexp=".*(\\.)\?(bandwagonhost|bwh1|vultr|digitalocean|linode|feenom)\\.com\$" type=FWD
 add comment=PT forward-to=198.18.0.1 regexp=".*(\\.)\?(pterclub|beitai|hd4fans|m-team|chdbits|ourbits|hdchina).*" type=FWD
