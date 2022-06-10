@@ -70,7 +70,7 @@ add comment=Video/Pic forward-to=198.18.0.1 regexp=".*(\\.)\?(tumblr|vimeo|flick
 add comment=News forward-to=198.18.0.1 regexp=".*(\\.)\?(voachinese|wsj|nyt|nytco|nytimes|nytstyle|bbc|reuters)\\.(com|net|me)" type=FWD
 add comment=News forward-to=198.18.0.1 regexp=".*(\\.)\?(theinitium|rfa|ntdtv|epochtimes|dw)\\.(com|org)" type=FWD
 add comment="Android APK" forward-to=198.18.0.1 regexp=".*(\\.)\?(apk-dl|apkpure)\\.com" type=FWD
-add comment=XXX forward-to=198.18.0.1 regexp=".*(\\.)\?(xvideos|pronhub|avgle)\\.com" type=FWD
+add comment=XXX forward-to=198.18.0.1 regexp=".*(\\.)\?(xvideos|pronhub|avgle|jable)\\.(com|tv)" type=FWD
 add comment=Telegram forward-to=198.18.0.1 regexp=".*(\\.)\?telegram\\.org" type=FWD
 add comment=Tools forward-to=198.18.0.1 regexp=".*(\\.)\?(wireguard|shadowsocks|v2ray|putty|fixit)\\.(org|com)" type=FWD
 add comment=Tools forward-to=198.18.0.1 regexp=".*(\\.)\?(draw|amcharts)\\.(io|com)\$" type=FWD
