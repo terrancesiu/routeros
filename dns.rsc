@@ -95,3 +95,4 @@ add comment=Jwplayer forward-to=198.18.0.1 name=videos-f.jwpsrv.com type=FWD
 add comment=Steam forward-to=198.18.0.1 name=media.steampowered.com type=FWD
 add address=2606:4700:d0::a29f:c001 comment="Cloudflare Warp" name=engage.cloudflareclient.com type=AAAA
 add comment=Disney+ forward-to=198.18.0.1 name=cdn.registerdisney.go.com type=FWD
+add comment=MikroTik forward-to=198.18.0.1 name=upgrade.mikrotik.com type=FWD
