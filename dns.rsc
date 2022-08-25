@@ -1,14 +1,4 @@
 /ip dns static
-add comment=Mikrotik forward-to=198.18.0.1 name=upgrade.mikrotik.com type=FWD
-add comment="Cloudflare API" forward-to=198.18.0.1 name=api.cloudflare.com \
-    type=FWD
-add comment=County forward-to=119.29.29.29 regexp=\
-    ".*(\\.)\?(.*|\\.)\?\\.(cn)\$" type=FWD
-add comment=WhiteList forward-to=119.29.29.29 regexp=\
-    ".*(\\.)\?(aru-akam|edelivery|yum|cdn)\\.(oracle|redhat)\\.com\$" type=\
-    FWD
-add comment=WhiteList forward-to=119.29.29.29 regexp=\
-    ".*(\\.)\?(vault|mirrorlist)\\.(centos)\\.(org)\$" type=FWD
 add comment=County forward-to=198.18.0.1 regexp=".*(\\.)\?(.*|\\.)\?\\.(cu|at|\
     ca|nz|br|jp|in|tw|hk|mo|ph|vn|tr|my|sg|it|uk|us|kr|ru)\$" type=FWD
 add comment=County forward-to=198.18.0.1 regexp=\
@@ -42,7 +32,7 @@ add comment=Company forward-to=198.18.0.1 regexp=\
     ".*(\\.)\?(hp|hpe|ibm|dell|emc|vmware|dellemc|oracle|intel|amd)\\.com\$" \
     type=FWD
 add comment=Company forward-to=198.18.0.1 regexp=\
-    ".*(\\.)\?(nvidia|qualcomm|cisco|arubanetworks|adobe)\\.com\$" type=FWD
+    ".*(\\.)\?(nvidia|qualcomm|cisco|arubanetworks|adobe|mikrotik)\\.com\$" type=FWD
 add comment=Cloud forward-to=198.18.0.1 regexp=\
     ".*(\\.)\?(oraclecloud|alicloud|salesforces|sap|workday)\\.com\$" type=\
     FWD
@@ -155,7 +145,7 @@ add comment=Blog forward-to=198.18.0.1 regexp=".*(\\.)\?(xuite)\\.net\$" \
 add comment=Community forward-to=198.18.0.1 regexp=\
     ".*(\\.)\?(mobile01)\\.com" type=FWD
 add comment=Video/Pic forward-to=198.18.0.1 regexp=\
-    ".*(\\.)\?(tumblr|vimeo|flickr|vine|pinimg)\\.com" type=FWD
+    ".*(\\.)\?(tumblr|vimeo|flickr|vine|pinimg|imgur)\\.com" type=FWD
 add comment=News forward-to=198.18.0.1 regexp=".*(\\.)\?(voachinese|wsj|nyt|ny\
     tco|nytimes|nytstyle|bbc|reuters)\\.(com|net|me)" type=FWD
 add comment=News forward-to=198.18.0.1 regexp=\
@@ -182,7 +172,7 @@ add comment=PT forward-to=198.18.0.1 regexp=\
 add comment=PT forward-to=198.18.0.1 regexp=\
     ".*(\\.)\?(hdsky|pterclub|totheglory).*" type=FWD
 add comment=PT forward-to=198.18.0.1 regexp=\
-    ".*(\\.)\?(yingk|springsunday|keepfrds).*" type=FWD
+    ".*(\\.)\?(springsunday|keepfrds).*" type=FWD
 add comment=Disney+ forward-to=198.18.0.1 regexp=\
     ".*(\\.)\?(dssott|disneyplus|disney-plus|bamgrid)\\.(com|net)" type=FWD
 add comment=Twitter forward-to=198.18.0.1 name=t.co type=FWD
