@@ -157,7 +157,7 @@ add comment=Telegram forward-to=198.18.0.1 regexp=".*(\\.)\?telegram\\.org" \
 add comment=Tools forward-to=198.18.0.1 regexp=".*(\\.)\?(shadowsocks|v2ray|pu\
     tty|fixi|internetdownloadmanager)\\.(org|com)" type=FWD
 add comment=Tools forward-to=198.18.0.1 regexp=\
-    ".*(\\.)\?(draw|notepad-plus-plus|7zip|wireguard)\\.(io|org|com)\$" type=\
+    ".*(\\.)\?(pypi|pythonhosted|draw|notepad-plus-plus|7zip|wireguard)\\.(io|org|com)\$" type=\
     FWD
 add comment=VPS forward-to=198.18.0.1 regexp=\
     ".*(\\.)\?(bandwagonhost|bwh1|vultr|digitalocean|linode|feenom)\\.com\$" \
