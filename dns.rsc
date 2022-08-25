@@ -1,5 +1,5 @@
 /ip dns static
-add comment=MikroTik forward-to=198.18.0.1 regexp="(upgrade|download)\.mikrotik\\.com\$" \
+add comment=MikroTik forward-to=198.18.0.1 regexp="(upgrade|download)\\.mikrotik\\.com\$" \
     type=FWD
 add comment=County forward-to=198.18.0.1 regexp=".*(\\.)\?(.*|\\.)\?\\.(cu|at|\
     ca|nz|br|jp|in|tw|hk|mo|ph|vn|tr|my|sg|it|uk|us|kr|ru)\$" type=FWD
