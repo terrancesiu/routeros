@@ -1,4 +1,6 @@
 /ip dns static
+add comment=MikroTik forward-to=198.18.0.1 regexp="(upgrade|download)\.mikrotik\\.com\$" \
+    type=FWD
 add comment=County forward-to=198.18.0.1 regexp=".*(\\.)\?(.*|\\.)\?\\.(cu|at|\
     ca|nz|br|jp|in|tw|hk|mo|ph|vn|tr|my|sg|it|uk|us|kr|ru)\$" type=FWD
 add comment=County forward-to=198.18.0.1 regexp=\
@@ -32,7 +34,7 @@ add comment=Company forward-to=198.18.0.1 regexp=\
     ".*(\\.)\?(hp|hpe|ibm|dell|emc|vmware|dellemc|oracle|intel|amd)\\.com\$" \
     type=FWD
 add comment=Company forward-to=198.18.0.1 regexp=\
-    ".*(\\.)\?(nvidia|qualcomm|cisco|arubanetworks|adobe|mikrotik)\\.com\$" type=FWD
+    ".*(\\.)\?(nvidia|qualcomm|cisco|arubanetworks|adobe)\\.com\$" type=FWD
 add comment=Cloud forward-to=198.18.0.1 regexp=\
     ".*(\\.)\?(oraclecloud|alicloud|salesforces|sap|workday)\\.com\$" type=\
     FWD
