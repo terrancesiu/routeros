@@ -153,7 +153,7 @@ add comment=News forward-to=198.18.0.1 regexp=\
 add comment="Android APK" forward-to=198.18.0.1 regexp=\
     ".*(\\.)\?(apk-dl|apkpure)\\.com" type=FWD
 add comment=XXX forward-to=198.18.0.1 regexp=\
-    ".*(\\.)\?(xvideos|pronhub|avgle)\\.com" type=FWD
+    ".*(\\.)\?(xvideos|pronhub|avgle|jable)\\.(com|tv)" type=FWD
 add comment=Telegram forward-to=198.18.0.1 regexp=".*(\\.)\?telegram\\.org" \
     type=FWD
 add comment=Tools forward-to=198.18.0.1 regexp=".*(\\.)\?(shadowsocks|v2ray|pu\
