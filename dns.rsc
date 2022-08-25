@@ -65,8 +65,6 @@ add comment=ViuTV/MY5/LiTV forward-to=198.18.0.1 regexp=\
     ".*(\\.)\?(viu|my5|channel5|litv)\\.(tv|com)" type=FWD
 add comment=HBO forward-to=198.18.0.1 regexp=".*(\\.)\?boltdns\\.net" type=\
     FWD
-add comment=Pornhub forward-to=198.18.0.1 regexp=\
-    ".*(\\.)\?(pornhub|phncdn).*\\.com" type=FWD
 add comment=encoreTVB forward-to=198.18.0.1 regexp=".*(\\.)\?encoretvb\\.com" \
     type=FWD
 add comment="myTV Super/TVB/JOOX" forward-to=198.18.0.1 regexp=\
@@ -153,7 +151,7 @@ add comment=News forward-to=198.18.0.1 regexp=\
 add comment="Android APK" forward-to=198.18.0.1 regexp=\
     ".*(\\.)\?(apk-dl|apkpure)\\.com" type=FWD
 add comment=XXX forward-to=198.18.0.1 regexp=\
-    ".*(\\.)\?(xvideos|pronhub|avgle|jable)\\.(com|tv)" type=FWD
+    ".*(\\.)\?(xvideos|pronhub|avgle|jable|phncdn)\\.(com|tv)" type=FWD
 add comment=Telegram forward-to=198.18.0.1 regexp=".*(\\.)\?telegram\\.org" \
     type=FWD
 add comment=Tools forward-to=198.18.0.1 regexp=".*(\\.)\?(shadowsocks|v2ray|pu\
