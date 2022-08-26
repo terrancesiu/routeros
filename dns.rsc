@@ -24,7 +24,7 @@ add comment=Quora forward-to=198.18.0.1 regexp=".*(\\.)\?quora\\.com" type=\
 add comment=Yahoo forward-to=198.18.0.1 regexp=".*(\\.)\?(yahoo|yimg)\\.com" \
     type=FWD
 add comment=DAZN forward-to=198.18.0.1 regexp=".*(\\.)\?dazn\\.com" type=FWD
-add comment=Linux forward-to=198.18.0.1 regexp="*.\\.(linuxfoundation|redhat|s\
+add comment=Linux forward-to=198.18.0.1 regexp=".*.\\.(linuxfoundation|redhat|s\
     use|opensuse|debian|ubuntu|alpine)\\.(org|com)\$" type=FWD
 add comment=Linux forward-to=198.18.0.1 regexp=\
     ".*(\\.)\?(clearlinux|clearos|centos|fedora)\\.(org|com)\$" type=FWD
