@@ -1,6 +1,4 @@
 /ip dns static
-add comment=County forward-to=119.29.29.29 regexp=".*(\\.)?\\.*\\.cn\$" \
-    type=FWD
 add comment=MikroTik forward-to=198.18.0.1 regexp="(upgrade|download)\\.mikrotik\\.com\$" \
     type=FWD
 add comment=County forward-to=198.18.0.1 regexp=".*(\\.)\?(.*|\\.)\?\\.(cu|at|\
@@ -86,8 +84,6 @@ add comment=AbemaTV forward-to=198.18.0.1 regexp=\
 add comment=Speedtest forward-to=198.18.0.1 regexp=\
     ".*(\\.)\?(fdcservers|yoshis|extride|chinaunicomglobal)\\.(net|com)" \
     type=FWD
-add comment=Speedtest forward-to=198.18.0.1 regexp=\
-    ".*(\\.)\?(speedtest|hgc)\\.(net|com)" type=FWD
 add comment="IP INFO" forward-to=198.18.0.1 regexp=\
     ".*(\\.)\?(ipinfo|ip)\\.(io|sb)" type=FWD
 add comment=encoreTVB forward-to=198.18.0.1 regexp="(edge\\.api\\.brightcove|v\
