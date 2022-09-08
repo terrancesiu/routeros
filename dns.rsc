@@ -1,4 +1,6 @@
 /ip dns static
+add comment=County forward-to=119.29.29.29 regexp=".*(\\.)?\\.*\\.cn\$" \
+    type=FWD
 add comment=MikroTik forward-to=198.18.0.1 regexp="(upgrade|download)\\.mikrotik\\.com\$" \
     type=FWD
 add comment=County forward-to=198.18.0.1 regexp=".*(\\.)\?(.*|\\.)\?\\.(cu|at|\
@@ -106,7 +108,7 @@ add comment=Google forward-to=198.18.0.1 regexp=\
     ".*(\\.)\?(itasoftware|madewithcode|synergyse|tiltbrush|waymo)\\.com" \
     type=FWD
 add comment=Google forward-to=198.18.0.1 regexp=\
-    ".*(\\.)\?(widevine|x|xn--ngstr-lra8j)\\.(company|com)" type=FWD
+    ".*(\\.)\?(widevine|x|app-measurement)\\.(company|com)" type=FWD
 add comment=Google forward-to=198.18.0.1 regexp=\
     ".*(\\.)\?(ampproject|certificate-transparency|chromium)\\.org" type=FWD
 add comment=Google forward-to=198.18.0.1 regexp=\
