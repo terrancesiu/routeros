@@ -29,7 +29,7 @@ add comment=Linux forward-to=198.18.0.1 regexp=".*.\\.(linuxfoundation|redhat|s\
 add comment=Linux forward-to=198.18.0.1 regexp=\
     ".*(\\.)\?(clearlinux|clearos|centos|fedora)\\.(org|com)\$" type=FWD
 add comment=OSS forward-to=198.18.0.1 regexp=".*(\\.)\?(docker|mysql|mongodb|a\
-    pache|mariadb|nginx|caddy|lighttpd)\\.(com|org|net)\$" type=FWD
+    pache|mariadb|nginx|caddy)\\.(io|com|org|net)\$" type=FWD
 add comment=Company forward-to=198.18.0.1 regexp=\
     ".*(\\.)\?(hp|hpe|ibm|dell|emc|vmware|dellemc|oracle|intel|amd)\\.com\$" \
     type=FWD
@@ -100,7 +100,7 @@ add comment=Google forward-to=198.18.0.1 regexp=\
     ".*(\\.)\?(debug|deepmind|dialogflow|firebaseio|googletagmanager)\\.com" \
     type=FWD
 add comment=Google forward-to=198.18.0.1 regexp=\
-    ".*(\\.)\?(ggpht|gmail|gmail|gmodules|gstatic|gv|gvt0|gvt1|gvt3)\\.com" \
+    ".*(\\.)\?(ggpht|gmail|gmail|gmodules|gstatic|gv|gvt0|gvt1|gvt2|gvt3)\\.com" \
     type=FWD
 add comment=Google forward-to=198.18.0.1 regexp=\
     ".*(\\.)\?(itasoftware|madewithcode|synergyse|tiltbrush|waymo)\\.com" \
