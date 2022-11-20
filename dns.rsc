@@ -143,9 +143,9 @@ add comment=Book/RSS forward-to=198.18.0.1 regexp=\
 add comment=Get forward-to=198.18.0.1 regexp=\
     ".*(\\.)\?(medium|wikipedia|wordpress)\\.(com|org)" type=FWD
 add comment=Community forward-to=198.18.0.1 regexp=".*(\\.)\?(jkforum|520cc|st\
-    eamcommunity|reddit|redditmedia|v2ex|hostloc|hostevaluate)\\.com" type=FWD
+    eamcommunity|reddit|redditmedia|v2ex|hostloc)\\.com" type=FWD
 add comment=Community forward-to=198.18.0.1 regexp=\
-    ".*(\\.)\?(mobile01|redditstatic)\\.com" type=FWD
+    ".*(\\.)\?(mobile01|redditstatic|hostevaluate)\\.com" type=FWD
 add comment=Blog forward-to=198.18.0.1 regexp=".*(\\.)\?(xuite)\\.net\$" \
     type=FWD
 add comment=Video/Pic forward-to=198.18.0.1 regexp=\
