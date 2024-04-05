@@ -182,6 +182,12 @@ add comment=PT forward-to=198.18.0.1 regexp=\
     ".*(\\.)\?(springsunday|keepfrds).*" type=FWD
 add comment=Disney+ forward-to=198.18.0.1 regexp=\
     ".*(\\.)\?(dssott|disneyplus|disney-plus|bamgrid)\\.(com|net)" type=FWD
+add comment=AI forward-to=198.18.0.1 regexp=\
+    ".*(\\.)\?(openai|ai|discord|oaistatic|oaiusercontent)\\.(com|gg)\$" \
+    type=FWD
+add comment=AI forward-to=198.18.0.1 regexp=\
+    ".*(\\.)\?(intercom|intercomcdn|featuregates|chatgpt)\\.(io|org|com)\$" \
+    type=FWD
 add comment=Twitter forward-to=198.18.0.1 name=t.co type=FWD
 add comment="Apple TV" forward-to=198.18.0.1 name=ocvideo.apple.com type=FWD
 add comment=Apple forward-to=198.18.0.1 name=api-glb-sea.smoot.apple.com \
