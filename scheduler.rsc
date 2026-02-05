@@ -1,13 +1,13 @@
 /system scheduler
 add comment="https://github.com/terrancesiu/routeros" interval=1w name=schedule2000 on-event="/ip/dns/cache/flush;\r\
     \n:delay 5s;\r\
-    \n/ip/dns/static/add name=raw.githubusercontent.com forward-to=198.18.0.1\r\
+    \n/ip/dns/static/add name=raw.githubusercontent.com forward-to=1.1.1.1\r\
     \n:local URL \"https://raw.githubusercontent.com/terrancesiu/routeros/main/dns.rsc\"\r\
     \n:local GET [/tool/fetch mode=https url=\$URL]\r\
     \n:delay 5s;\r\
     \n:local NAME [/file/get dns.rsc name]\r\
     \n:if (\$NAME = \"dns.rsc\") do={\r\
-    \n/ip/dns/static/remove [find forward-to=198.18.0.1];\r\
+    \n/ip/dns/static/remove [find forward-to=1.1.1.1];\r\
     \n/import file-name=\$NAME;\r\
     \n:log/info \"fetch: file \\\"\$NAME\\\" importd\";\r\
     \n/file/remove dns.rsc;\r\
