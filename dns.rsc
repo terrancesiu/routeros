@@ -1,8 +1,20 @@
+# 2026-02-05 15:36:43 by RouterOS 7.21.2
+#
 /ip dns static
-add comment=County forward-to=119.29.29.29 regexp=".*(\\.)\?\\.*\\.cn\$" \
+add comment=TLD forward-to=119.29.29.29 regexp="\\.cn\$" type=FWD
+add comment=TLD forward-to=1.0.0.1 regexp=\
+    "\\.(cu|at|ca|nz|br|jp|in|ph|vn|tr|my|sg|it|uk|us|kr|ru|lv|fr|de|\
+    \nat)\$" type=FWD
+add comment=TLD forward-to=1.0.0.1 regexp="\\.(tw|hk|mo|my)\$" type=FWD
+add comment=TLD forward-to=1.0.0.1 regexp="\\.(icu|cc|ing|dev|xyz|one)\$" \
     type=FWD
-add address-list=pppoe-out1 comment=KEYWORD forward-to=119.29.29.29 regexp=\
-    ".*(\\.)\?(paypal|taobao|paypalobjects|qq|ebay)\\.*" type=FWD
+add comment=TLD forward-to=1.0.0.1 regexp=\
+    "\\.(social|app|network|studio|stream|space|work|site|wiki|press|buzz)\$" \
+    type=FWD
+add comment=TLD forward-to=1.0.0.1 regexp=\
+    "\\.(ms|be|fi|ai|goog|e|microsoft)\$" type=FWD
+add address=104.19.192.174 name=api.cloudflare.com type=A
+add address=172.66.0.218 name=speed.cloudflare.com type=A
 add address-list=pppoe-out1 comment="Apple Music " forward-to=223.5.5.5 name=\
     k128-mzstatic.gslb.ksyuncdn.com type=FWD
 add address-list=pppoe-out1 comment="Apple Music " forward-to=223.5.5.5 name=\
@@ -27,247 +39,216 @@ add comment=speedtest forward-to=1.0.0.1 match-subdomain=yes name=\
 add comment=speedtest forward-to=1.0.0.1 match-subdomain=yes name=\
     dnsleaktest.com type=FWD
 add comment=MikroTik forward-to=1.0.0.1 regexp=\
-    "(upgrade|download|help)\\.mikrotik\\.com\$" type=FWD
+    "(upgrade|download|help)\\.mikrotik\\." type=FWD
 add comment=Cloudflare forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(speed|cdn)\\.cloudflare\\.com\$" type=FWD
-add comment="Google APIs" forward-to=1.0.0.1 regexp=\
-    "(www|oauth2)\\.(googleapis)\\.com\$" type=FWD
-add comment="Google Drive" forward-to=1.0.0.1 match-subdomain=yes name=\
-    drive.usercontent.google.com type=FWD
+    "(^|\\.)(speed|cdn)\\.cloudflare\\." type=FWD
 add comment=OneDrive forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(storage|mail|onedrive)\\.live\\.com\$" type=FWD
+    "(^|\\.)(storage|mail|onedrive)\\.live\\." type=FWD
 add comment=Oracle forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(yum|aru-akam|edelivery)\\.oracle\\.com\$" type=FWD
-add comment=County forward-to=1.0.0.1 regexp=".*(\\.)\?(.*|\\.)\?\\.(cu|at|ca|\
-    nz|br|jp|in|mo|ph|vn|tr|my|sg|it|uk|us|kr|ru|lv)\$" type=FWD
-add comment=County forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(.*|\\.)\?\\.(fr|de|icu)\$" type=FWD
-add comment=Company forward-to=1.0.0.1 regexp=".*(.*|\\.).*\\.(ms|be|fi)\$" \
+    "(^|\\.)(yum|aru-akam|edelivery)\\.oracle\\." type=FWD
+add address-list=pppoe-out1 comment=KEYWORD forward-to=119.29.29.29 regexp=\
+    "(^|\\.)(taobao|qq|ebay[a-z]*)\\." type=FWD
+add comment=KEYWORD forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(google[a-z]*|facebook[a-z]*|blogspot[a-z]*|github[a-z]*)\\." \
     type=FWD
-add comment=KEYWORD forward-to=1.0.0.1 regexp=".*(\\.)\?(google|facebook|blogs\
-    pot|jav|pinterest|pron|github|bbcfmt|uk-live)\\.*" type=FWD
-add comment=KEYWORD forward-to=1.0.0.1 regexp=".*(\\.)\?(dropbox).*" type=FWD
-add comment="Public CDN" forward-to=1.0.0.1 regexp=".*(\\.)\?(aa|akamai*|cloud\
-    front|tiqcdn|akstat|go-mpulse|2o7|fastly)\\.(com|net)\$" type=FWD
+add comment=KEYWORD forward-to=1.0.0.1 regexp="(^|\\.)(dropbox[a-z]*)\\." \
+    type=FWD
+add comment="Public CDN" forward-to=1.0.0.1 regexp="(^|\\.)(aa|akamai[a-z]*|cl\
+    oudfront|tiqcdn|akstat|go-mpulse|2o7|fastly)\\." type=FWD
 add comment="Public CDN" forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(cloudflareinsights|cloudflareclient|workers).(dev|com|net)\$" \
+    "(^|\\.)(cloudflareinsights|cloudflareclient|workers)\\." type=FWD
+add comment="Public CDN" forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(jsdelivr|gcorelabs|llnwi|perfops|cachefly|loli)\\." type=FWD
+add comment="Public CDN" forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(fastly-analytics|cdn77|worldssl|mncdn|qwilt|perfops)\\." type=\
+    FWD
+add comment="Public CDN" forward-to=1.0.0.1 regexp="(^|\\.)(akadns[a-z]*)\\." \
     type=FWD
-add comment="Public CDN" forward-to=1.0.0.1 regexp=".*(\\.)\?(jsdelivr|gcorela\
-    bs|llnwi|perfops|cachefly|loli).(net|com|io)\$" type=FWD
-add comment="Public CDN" forward-to=1.0.0.1 regexp=".*(\\.)\?(fastly-analytics\
-    |cdn77|worldssl|mncdn|qwilt|perfops).(net|com|org)\$" type=FWD
 add comment="Apple Services" forward-to=1.0.0.1 regexp=\
-    ".*\\.(icloud|me)\\.com\$" type=FWD
-add comment="Apple Services" forward-to=1.0.0.1 regexp=".*(\\.)\?(appsto|appst\
-    ore|aaplimg|crashlytics|mzstatic).*(\\.com|\\.co|.re)\$" type=FWD
+    "(^|\\.)(icloud|me)\\." type=FWD
+add comment="Apple Services" forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(appsto|appstore|aaplimg|crashlytics|mzstatic)\\." type=FWD
 add comment=Amazon forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(amazon|amazonaws|kindle|primevideo).*\\.com\$" type=FWD
-add comment=Quora forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(quora|quoracdn)\\.(com|net)\$" type=FWD
+    "(^|\\.)(amazon|amazonaws|kindle|primevideo|pv-cdn|a2z|amazonvideo)\\." \
+    type=FWD
+add comment=Amazon forward-to=1.0.0.1 regexp="(^|\\.)(aiv-[a-z]*)\\." type=\
+    FWD
+add comment=Quora forward-to=1.0.0.1 regexp="(^|\\.)(quora[a-z]*)\\." type=\
+    FWD
 add comment=Yahoo forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(yahoo|scorecardresearch)\\.com\$" type=FWD
-add comment=Linux forward-to=1.0.0.1 regexp=".*.\\.(linuxfoundation|redhat|sus\
-    e|opensuse|debian|ubuntu|alpine)\\.(org|com)\$" type=FWD
-add comment=Linux forward-to=1.0.0.1 regexp=".*(\\.)\?(clearlinux|clearos|cent\
-    os|fedoraproject|voidlinux)\\.(org|com)\$" type=FWD
-add comment=OSS forward-to=1.0.0.1 regexp=".*(\\.)\?(docker|mysql|mongodb|apac\
-    he|mariadb|nginx|caddy)\\.(io|com|org|net)\$" type=FWD
+    "(^|\\.)(yahoo|scorecardresearch)\\." type=FWD
+add comment=Yahoo forward-to=1.0.0.1 match-subdomain=yes name=yimg.com type=\
+    FWD
+add comment=Linux forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(linuxfoundation|redhat|suse|opensuse|debian|ubuntu|alpine)\\." \
+    type=FWD
+add comment=Linux forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(clearlinux|clearos|centos|fedoraproject|voidlinux)\\." type=FWD
+add comment=OSS forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(docker|mysql|mongodb|apache|mariadb|nginx|caddy)\\." type=FWD
 add comment=Company forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(hp|hpe|ibm|dell|emc|vmware|dellemc|oracle|intel|amd)\\.com\$" \
+    "(^|\\.)(hp|hpe|ibm|dell|emc|vmware|dellemc|oracle|intel|amd)\\." type=\
+    FWD
+add comment=Company forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(nvidia|qualcomm|cisco|arubanetworks|adobe|arubainstanton)\\." \
     type=FWD
-add comment=Company forward-to=1.0.0.1 regexp=".*(\\.)\?(nvidia|qualcomm|cisco\
-    |arubanetworks|adobe|arubainstanton)\\.com\$" type=FWD
-add comment=Cloud forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(a2z|awsstatic)\\.com\$" type=FWD
-add comment=Cloud forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(oraclecloud|alicloud|salesforces|sap|workday)\\.com\$" type=\
+add comment=Cloud forward-to=1.0.0.1 regexp="(^|\\.)(a2z|awsstatic)\\." type=\
     FWD
 add comment=Cloud forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(oracleinfinity|trustarc)\\.(io|com)\$" type=FWD
+    "(^|\\.)(oraclecloud|alicloud|salesforces|sap|workday)\\." type=FWD
 add comment=Cloud forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(oracleinfinity)\\.(io|com)\$" type=FWD
-add comment=ITV forward-to=1.0.0.1 regexp=".*(\\.)\?(itv|itvstatic)\\.com\$" \
+    "(^|\\.)(oracleinfinity|trustarc)\\." type=FWD
+add comment=Cloud forward-to=1.0.0.1 regexp="(^|\\.)(oracleinfinity)\\." \
     type=FWD
-add comment=MicroSoft forward-to=1.0.0.1 regexp="(^|\\.)(azure|bing|live|outlo\
-    ok|msn|surface|1drv|microsoft)\\.(net|com|org)\$" type=FWD
-add comment=MicroSoft forward-to=1.0.0.1 regexp=".*(\\.)\?(azureedge|msauth|[a\
-    -z]-msedge|cd20|office|msftncsi)\\.(net|com|org)\$" type=FWD
-add comment=MicroSoft forward-to=1.0.0.1 regexp="(^|\\.)(microsoftonline|msecn\
-    d|msftauth|skype|onedrive|modpim)\\.(net|com|org)\$" type=FWD
+add comment=MicroSoft forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(azure|bing|live|outlook|msn|surface|1drv|microsoft)\\." type=FWD
+add comment=MicroSoft forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(azureedge|msauth|[a-z]-msedge|cd20|office|msftncsi)\\." type=FWD
+add comment=MicroSoft forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(microsoftonline|msecnd|msftauth|skype|onedrive|modpim)\\." type=\
+    FWD
+add comment=MicroSoft forward-to=1.0.0.1 regexp="(^|\\.)(msidentity)\\." \
+    type=FWD
 add comment=Spotify/TIDAL forward-to=1.0.0.1 regexp=\
-    "(^|\\.)(spotify|tidal|pcdn|scdn|pscdn)\\.(com|co)\$" type=FWD
-add comment=Pandora/PBS forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(pandora|pbs)\\.(com|org)\$" type=FWD
-add comment=DAZN forward-to=192.0.2.25 regexp=".*(\\.)\?dazn.*\\.com\$" type=\
-    FWD
-add comment=DAZN forward-to=192.0.2.25 regexp=\
-    ".*(\\.)\?(deezer|dzcdn)\\.(com|net)\$" type=FWD
-add comment=Hulu forward-to=192.0.2.25 regexp=\
-    ".*(\\.)\?(hulu|happyon).*(\\.com|\\.jp)\$" type=FWD
-add comment="Fox Now" forward-to=192.0.2.25 regexp=\
-    ".*(\\.)\?(fox|uplynk).*\\.com\$" type=FWD
-add comment="Fox+ (HK|TW|SG)" forward-to=192.0.2.25 regexp=\
-    ".*(\\.)\?(foxplus|theplatform)\\.com\$" type=FWD
-add comment=4gtv/KKTV forward-to=192.0.2.25 regexp=\
-    ".*(\\.)\?(4gtv|kktv)\\.(tv|com|me)\$" type=FWD
-add comment=KKBOX forward-to=192.0.2.25 regexp=\
-    ".*(\\.)\?(kfs|kkbox)\\.(io|com)\$" type=FWD
-add comment=Twitch forward-to=192.0.2.25 regexp=\
-    ".*(\\.)\?(twitch|ttvnw).*(\\.net|\\.tv)\$" type=FWD
-add comment=ViuTV/MY5/LiTV forward-to=192.0.2.25 regexp=\
-    ".*(\\.)\?(viu|my5|channel5|litv)\\.(tv|com)\$" type=FWD
-add comment=HBO forward-to=192.0.2.25 regexp=".*(\\.)\?boltdns\\.net\$" type=\
-    FWD
-add comment="Hami Video" forward-to=1.0.0.1 regexp=".*(\\.)\?(hinet)\\.net" \
+    "(^|\\.)(spotify|tidal|pcdn|scdn|pscdn)\\." type=FWD
+add comment=Pandora/PBS forward-to=1.0.0.1 regexp="(^|\\.)(pandora|pbs)\\." \
     type=FWD
-add comment=encoreTVB forward-to=192.0.2.25 regexp=\
-    ".*(\\.)\?encoretvb\\.com\$" type=FWD
+add comment=Hulu forward-to=192.0.2.25 regexp="(^|\\.)(hulu|happyon)\\." \
+    type=FWD
+add comment="Fox Now" forward-to=192.0.2.25 regexp="(^|\\.)(fox|uplynk)\\." \
+    type=FWD
+add comment="Fox+ (HK|TW|SG)" forward-to=192.0.2.25 regexp=\
+    "(^|\\.)(foxplus|theplatform)\\." type=FWD
+add comment=Twitch forward-to=192.0.2.25 regexp="(^|\\.)(twitch|ttvnw)\\." \
+    type=FWD
+add comment=ViuTV/MY5/LiTV forward-to=192.0.2.25 regexp=\
+    "(^|\\.)(viu|my5|channel5|litv)\\." type=FWD
+add comment="Hami Video" forward-to=1.0.0.1 regexp="(^|\\.)(hinet)\\." type=\
+    FWD
 add comment="myTV Super/TVB/JOOX" forward-to=192.0.2.25 regexp=\
-    ".*(\\.)\?(mytvsuper|tvb|joox)\\.com\$" type=FWD
-add comment=BBC forward-to=192.0.2.25 regexp=\
-    ".*(\\.)\?(bbc|bbci)\\.(co\\.uk|com)\$" type=FWD
-add comment=All4 forward-to=192.0.2.25 regexp=\
-    ".*(\\.)\?(c4assets|channel4)\\.com\$" type=FWD
-add comment=AbemaTV forward-to=192.0.2.25 regexp=\
-    ".*(\\.)\?(abema|ameba|hayabusa)\\.(jp|io)\$" type=FWD
-add comment=encoreTVB forward-to=192.0.2.25 regexp="(edge\\.api\\.brightcove|v\
-    ideos-f\\.jwpsrv|content\\.jwplatform)\\.(com|net)\$" type=FWD
+    "(^|\\.)(mytvsuper|tvb|joox|tvbanywhere|tvbeventpower)\\." type=FWD
+add comment="myTV Super/TVB/JOOX" forward-to=192.0.2.25 regexp=\
+    "(^|\\.)(tvbusa|tvbweekly|tvmedia)\\." type=FWD
+add comment=BBC forward-to=192.0.2.25 regexp="(^|\\.)(bbc|bbci)\\." type=FWD
 add comment=HBOMAX forward-to=192.0.2.25 regexp=\
-    ".*(\\.)\?(max|branch|brightline|discomax|litix).(com|io|tv)\$" type=FWD
+    "(^|\\.)(max|branch|brightline|discomax|litix|hbo[a-z]*)\\." type=FWD
 add comment=HBOMAX forward-to=192.0.2.25 match-subdomain=yes name=app.link \
     type=FWD
+add comment=HBOMAX forward-to=192.0.2.25 match-subdomain=yes name=\
+    appsflyer.com type=FWD
 add comment=Netflix forward-to=192.0.2.25 regexp=\
-    ".*(\\.)\?(nflx|netflix|netflixdnstest|fast).*(\\.net|\\.com|\\.org)\$" \
-    type=FWD
-add comment=Disney+ forward-to=192.0.2.25 regexp=".*(\\.)\?(dssott|disneyplus|\
-    disney-plus|bamgrid|go|adobedtm)\\.(com|net)\$" type=FWD
-add comment=Google forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(youtube|ytimg|1e100cdn)\\.(com|net)\$" type=FWD
-add comment=Google forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(android|androidify|appspot|autodraw|blogger)\\.com\$" type=FWD
-add comment=Google forward-to=1.0.0.1 regexp=".*(\\.)\?(capitalg|chrome|chrome\
-    experiments|chromestatus|creativelab5)\\.com\$" type=FWD
-add comment=Google forward-to=1.0.0.1 regexp=".*(\\.)\?(debug|deepmind|dialogf\
-    low|firebaseio|googletagmanager)\\.com\$" type=FWD
-add comment=Google forward-to=1.0.0.1 regexp=".*(\\.)\?(ggpht|gmail|gmail|gmod\
-    ules|gstatic|gv|gvt0|gvt1|gvt2|gvt3)\\.com\$" type=FWD
-add comment=Google forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(itasoftware|madewithcode|synergyse|tiltbrush|waymo)\\.com\$" \
-    type=FWD
-add comment=Google forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(widevine|x|app-measurement)\\.(company|com)\$" type=FWD
-add comment=Google forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(ampproject|certificate-transparency|chromium)\\.org\$" type=\
+    "(^|\\.)(netflix[a-z]*|nflx[a-z]*|fast)\\." type=FWD
+add comment=Disney+ forward-to=192.0.2.25 regexp=\
+    "(^|\\.)(dssott|disney[a-z]*|disney-[a-z]*|bamgrid|go|adobedtm)\\." type=\
     FWD
 add comment=Google forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(getoutline|godoc|golang|gwtproject)\\.org\$" type=FWD
+    "(^|\\.)(youtube|ytimg|1e100cdn)\\." type=FWD
 add comment=Google forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(polymer-project|tensorflow)\\.org\$" type=FWD
+    "(^|\\.)(android|androidify|appspot|autodraw|blogger)\\." type=FWD
 add comment=Google forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(waveprotocol|webmproject|webrtc|whatbrowser)\\.org\$" type=FWD
+    "(^|\\.)(capitalg|chrome|chromeexperiments|chromestatus|creativelab5)\\." \
+    type=FWD
 add comment=Google forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(material|shattered|recaptcha)\\.(net|io)\$" type=FWD
+    "(^|\\.)(debug|deepmind|dialogflow|firebaseio)\\." type=FWD
 add comment=Google forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(abc|admin|getmdl)\\.(xyz|net|io)\$" type=FWD
+    "(^|\\.)(ggpht|gmail|gmail|gmodules|gstatic|gv|gvt[0-9])\\." type=FWD
+add comment=Google forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(itasoftware|madewithcode|synergyse|tiltbrush|waymo)\\." type=FWD
+add comment=Google forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(widevine|x|app-measurement)\\." type=FWD
+add comment=Google forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(ampproject|certificate-transparency|chromium)\\." type=FWD
+add comment=Google forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(getoutline|godoc|golang|gwtproject)\\." type=FWD
+add comment=Google forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(polymer-project|tensorflow)\\." type=FWD
+add comment=Google forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(waveprotocol|webmproject|webrtc|whatbrowser)\\." type=FWD
+add comment=Google forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(material|shattered|recaptcha)\\." type=FWD
+add comment=Google forward-to=1.0.0.1 regexp="(^|\\.)(abc|admin|getmdl)\\." \
+    type=FWD
 add comment=Twitter forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(x|twimg|twitpic|twitter)\\.(co|com)\$" type=FWD
-add comment=Bluesky forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(bsky)\\.(social|app|network)\$" type=FWD
+    "(^|\\.)(x|twimg|twitpic|twitter)\\." type=FWD
 add comment=Facebook forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(messenger|whatsapp|oculus|oculuscdn)\\.(com|net)\$" type=FWD
+    "(^|\\.)(messenger|whatsapp|oculus|oculuscdn)\\." type=FWD
 add comment=Facebook forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(cdninstagram|fb|fbcdn|instagram)\\.(com|net|me)\$" type=FWD
-add comment=TikTok forward-to=1.0.0.1 regexp=".*(\\.)\?(bytedapm|bytegecko-i18\
-    n|byteoversea|capcut|ibytedtos|ibyteimg)\\.(com)\$" type=FWD
+    "(^|\\.)(cdninstagram|fb|fbcdn|instagram)\\." type=FWD
 add comment=TikTok forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(ipstatp|isnssdk|muscdn|musical|sgpstatp|snssdk)\\.(com|ly)\$" \
-    type=FWD
-add comment=TikTok forward-to=1.0.0.1 regexp=".*(\\.)\?(tik-tokapi|tiktok|tikt\
-    okcdn\\-us|tiktokcdn|tiktokd)\\.(com|net)\$" type=FWD
+    "(^|\\.)(byteoversea|ibytedtos|ipstatp|muscdn|musicaltiktok)\\." type=FWD
 add comment=TikTok forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(tiktokd|tiktokmusic|tiktokv|tiktokv)\\.(com|org|app|us|net)\$" \
-    type=FWD
-add comment=TikTok forward-to=1.0.0.1 name=lf16-effectcdn.byteeffecttos-g.com \
-    type=FWD
-add comment=TikTok forward-to=1.0.0.1 name=lf16-pkgcdn.pitaya-clientai.com \
-    type=FWD
-add comment=TikTok forward-to=1.0.0.1 name=p16-tiktokcdn-com.akamaized.net \
-    type=FWD
-add comment=TikTok forward-to=1.0.0.1 match-subdomain=yes name=\
-    com.zhiliaoapp.musically type=FWD
+    "(^|\\.)(tiktokcdn|tik-tokapi|tiktokv)\\." type=FWD
 add comment=Line forward-to=1.0.0.1 regexp=\
-    "(^|\\.)(line(.*|\\.)|naver)\\.(me|com|net|jp)\$" type=FWD
-add comment=Bitcoin forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(bibox|binance|bitfinex|hbg|okex)\\.com\$" type=FWD
+    "(^|\\.)(line|line-apps|line-cdn|naver)\\." type=FWD
+add comment=Crypto forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(bibox|binance|bitfinex|hbg|okex|coinbase|okx)\\." type=FWD
 add comment=Share forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(dailymotion|scribd|soundcloud|pixiv|slideshare)\\.(com|net)\$" \
-    type=FWD
+    "(^|\\.)(dailymotion|scribd|soundcloud|pixiv|slideshare)\\." type=FWD
 add comment="Search Engine" forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(duckduckgo|tineye)\\.com\$" type=FWD
-add comment=Douyin forward-to=1.0.0.1 regexp=\
-    ".*.\\.(zijieapi|bytegoof)\\.(com|net)\$" type=FWD
+    "(^|\\.)(duckduckgo|tineye)\\." type=FWD
+add comment=Douyin forward-to=1.0.0.1 regexp="(^|\\.)(zijieapi|bytegoof)\\." \
+    type=FWD
 add comment=Book/RSS forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(feedly|goodreads|issuu|newsblur)\\.com\$" type=FWD
+    "(^|\\.)(feedly|goodreads|issuu|newsblur)\\." type=FWD
 add comment=Get forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(medium|wikipedia|wordpress|archive)\\.(com|org|md|is)\$" type=\
-    FWD
-add comment=Community forward-to=1.0.0.1 regexp=".*(\\.)\?(jkforum|520cc|steam\
-    community|reddit|redditmedia|v2ex|hostloc)\\.com\$" type=FWD
+    "(^|\\.)(medium|wikipedia|wordpress|archive)\\." type=FWD
+add comment=Community forward-to=1.0.0.1 regexp="(^|\\.)(jkforum|520cc|steamco\
+    mmunity|reddit|redditmedia|v2ex|hostloc)\\." type=FWD
 add comment=Community forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(mobile01|redditstatic|hostevaluate|nodeseek)\\.com\$" type=FWD
-add comment=Blog forward-to=1.0.0.1 regexp=".*(\\.)\?(xuite)\\.net\$" type=\
-    FWD
+    "(^|\\.)(mobile01|redditstatic|hostevaluate|nodeseek)\\." type=FWD
+add comment=Blog forward-to=1.0.0.1 regexp="(^|\\.)(xuite)\\." type=FWD
 add comment=Video/Pic forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(tumblr|vimeo|flickr|vine|pinimg|imgur)\\.com\$" type=FWD
-add comment=News forward-to=1.0.0.1 regexp=".*(\\.)\?(voachinese|wsj|nyt|nytco\
-    |nytimes|nytstyle|bbc|reuters)\\.(com|net|me)\$" type=FWD
+    "(^|\\.)(tumblr|vimeo|flickr|vine|pinimg|imgur|e-hentai)\\." type=FWD
 add comment=News forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(theinitium|rfa|ntdtv|epochtimes|dw)\\.(com|org)\$" type=FWD
-add comment=Info forward-to=1.0.0.1 regexp=".*(\\.)\?(kknews)\\.(cc)\$" type=\
+    "(^|\\.)(voachinese|wsj|nyt|nytco|nytimes|nytstyle|bbc|reuters)\\." type=\
     FWD
+add comment=News forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(theinitium|rfa|ntdtv|epochtimes|dw)\\." type=FWD
 add comment="Android APK" forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(apk-dl|apkpure)\\.com\$" type=FWD
-add comment=XXX forward-to=1.0.0.1 regexp=".*(\\.)\?(xvideos|pronhub|avgle|jab\
-    le|phncdn|mushroomtrack|doppiocdn)\\.(com|tv)\$" type=FWD
-add comment=Telegram forward-to=1.0.0.1 regexp=".*(\\.)\?telegram\\.org\$" \
+    "(^|\\.)(apk-dl|apkpure)\\." type=FWD
+add comment=XXX forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(xvideos|pronhub|avgle|jable|phncdn|mushroomtrack|doppiocdn)\\." \
     type=FWD
-add comment=Tools forward-to=1.0.0.1 regexp=".*(\\.)\?(shadowsocks|v2ray|putty\
-    |fixi|internetdownloadmanager|v2fly)\\.(org|com)\$" type=FWD
-add comment=Tools forward-to=1.0.0.1 regexp=".*(\\.)\?(pypi|pythonhosted|draw|\
-    notepad-plus-plus|7zip|wireguard)\\.(io|org|com)\$" type=FWD
-add comment=Tools forward-to=1.0.0.1 regexp=".*(\\.)\?(maxymiser|freedownloadm\
-    anager|qbittorrent|directdlm)\\.(net|org|com)\$" type=FWD
+add comment=XXX forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(hanime1|hanimeone|hanime1|javchu|jkforum|missav)\\." type=FWD
+add comment=Telegram forward-to=1.0.0.1 regexp="(^|\\.)telegram\\." type=FWD
 add comment=Tools forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(netsarang|zerossl)\\.(net|org|com)\$" type=FWD
+    "(^|\\.)(shadowsocks|v2ray|putty|fixi|internetdownloadmanager|v2fly)\\." \
+    type=FWD
 add comment=Tools forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(tmdb|themoviedb)\\.(net|org|com|net)\$" type=FWD
-add comment=Grafana forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(grafana|intercom|intercomcdn|grafana-ops)\\.(net|io|com)\$" \
+    "(^|\\.)(pypi|pythonhosted|draw|notepad-plus-plus|7zip|wireguard)\\." \
     type=FWD
-add comment=IP forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(ipinfo|skk|bgp|ipleak)\\.(moe|io|sb|tools|net)\$" type=FWD
-add comment=ChatGPT forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(openai|ai|discord|oaistatic|oaiusercontent)\\.(com|gg)\$" \
-    type=FWD
-add comment=ChatGPT forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(intercom|intercomcdn|featuregates|chatgpt)\\.(io|org|com)\$" \
-    type=FWD
-add comment=ChatGPT forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(browser-intake-datadoghq)\\.(net|com)\$" type=FWD
-add comment=Claude forward-to=1.0.0.1 regexp=".*(\\.)\?(claude|hsforms|anthrop\
-    ic|chatgpt|claudeusercontent)\\.(ai|com|net)\$" type=FWD
-add comment=Claude forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(usefathom)\\.(ai|com|net)\$" type=FWD
-add comment=VPS forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(bandwagonhost|bwh1|vultr|digitalocean|linode|feenom)\\.com\$" \
-    type=FWD
-add comment=VPN forward-to=1.0.0.1 regexp=".*(\\.)\?(cyberghostvpn|atlasvpn|pu\
-    revpn|keepsolid|pointtoserver|ptoserver).*" type=FWD
-add comment=VPN forward-to=1.0.0.1 regexp=".*(\\.)\?(surfshark|ivpn|windscribe\
-    |torguard|vpnranks|comparitech|ivacy).*" type=FWD
-add comment=VPN forward-to=1.0.0.1 regexp=\
-    ".*(\\.)\?(playbeasts|getflix|fanqiang|mullvad|glados|flowvpn).*" type=\
+add comment=Tools forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(maxymiser|freedownloadmanager|qbittorrent|directdlm)\\." type=\
     FWD
+add comment=Tools forward-to=1.0.0.1 regexp="(^|\\.)(netsarang|zerossl)\\." \
+    type=FWD
+add comment=Tools forward-to=1.0.0.1 regexp="(^|\\.)(tmdb|themoviedb)\\." \
+    type=FWD
+add comment=Grafana forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(grafana|intercom|intercomcdn|grafana-ops)\\." type=FWD
+add comment=IP forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(ipinfo|skk|bgp|ipleak|ipcheck)\\." type=FWD
+add comment=ChatGPT forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(openai|ai|discord|oaistatic|oaiusercontent)\\." type=FWD
+add comment=ChatGPT forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(intercom|intercomcdn|featuregates|chatgpt)\\." type=FWD
+add comment=ChatGPT forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(browser-intake-datadoghq)\\." type=FWD
+add comment=Claude forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(claude|hsforms|anthropic|chatgpt|claudeusercontent)\\." type=FWD
+add comment=Claude forward-to=1.0.0.1 regexp="(^|\\.)(usefathom)\\." type=FWD
+add comment=Sora forward-to=1.0.0.1 regexp="(^|\\.)(sora)\\." type=FWD
+add comment=Grok forward-to=1.0.0.1 regexp="(^|\\.)(grok)\\." type=FWD
+add comment=VPS forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(bandwagonhost|bwh1|vultr|digitalocean|linode|feenom)\\." type=\
+    FWD
+add comment=VPN forward-to=1.0.0.1 regexp="(^|\\.)(cyberghostvpn|atlasvpn|pure\
+    vpn|keepsolid|pointtoserver|ptoserver)\\." type=FWD
+add comment=VPN forward-to=1.0.0.1 regexp="(^|\\.)(surfshark|ivpn|windscribe|t\
+    orguard|vpnranks|comparitech|ivacy)\\." type=FWD
+add comment=VPN forward-to=1.0.0.1 regexp=\
+    "(^|\\.)(playbeasts|getflix|fanqiang|mullvad|glados|flowvpn)\\." type=FWD
 add comment="Hami Video" forward-to=192.0.2.25 name=cm-dev-poc.holmesmind.com \
     type=FWD
 add comment=KKTV forward-to=192.0.2.25 name=kktv-theater.kk.stream type=FWD
